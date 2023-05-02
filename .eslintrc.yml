@@ -1,0 +1,65 @@
+parser: '@typescript-eslint/parser'
+extends:
+  - plugin:import/errors
+  - plugin:import/warnings
+  - plugin:import/typescript
+  - plugin:@typescript-eslint/recommended
+parserOptions:
+  ecmaVersion: 2018
+plugins:
+  - import
+  - '@typescript-eslint'
+rules:
+  comma-dangle:
+    - error
+    - always-multiline
+  eol-last:
+    - error
+  import/newline-after-import:
+    - error
+    - count: 1
+  import/no-named-as-default:
+    - off
+  import/no-named-as-default-member:
+    - off
+  import/no-unresolved: # does not work with esm
+    - off
+  import/order:
+    - error
+    - alphabetize:
+        order: asc
+        caseInsensitive: false
+      groups:
+        - [parent, sibling, index]
+        - external
+        - builtin
+      newlines-between: never
+  no-trailing-spaces:
+    - error
+  object-curly-spacing:
+    - error
+    - always
+  prefer-const:
+    - error
+    - destructuring: 'all'
+  quote-props:
+    - error
+    - as-needed
+  quotes:
+    - error
+    - single
+  space-infix-ops:
+    - error
+  space-unary-ops:
+    - error
+    - overrides:
+        '!': true
+  '@typescript-eslint/member-delimiter-style':
+    - error
+    - multiline:
+        delimiter: 'none'
+  '@typescript-eslint/no-explicit-any':
+    - warn
+  '@typescript-eslint/semi':
+    - error
+    - never

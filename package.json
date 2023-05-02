@@ -1,0 +1,50 @@
+{
+  "name": "webrcade-feed-exporter",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Create a webЯcade feed from LaunchBox metadata",
+  "author": {
+    "name": "Andrew Mackrodt",
+    "email": "andrewmackrodt@gmail.com",
+    "url": "https://github.com/andrewmackrodt/webrcade-feed-exporter"
+  },
+  "scripts": {
+    "build": "npm-run-all clean:build build:compile",
+    "build:compile": "tsc --sourcemap --outDir out/",
+    "clean": "npm-run-all clean:build clean:coverage",
+    "clean:build": "shx rm -rf out/",
+    "clean:coverage": "shx rm -rf coverage/",
+    "coverage": "NODE_OPTIONS='--experimental-vm-modules --no-warnings' jest --collect-coverage",
+    "lint": "eslint --ext ts .",
+    "lint:check": "eslint --ext ts --format rdjson . | reviewdog -f=rdjson -reporter=github-check",
+    "lint:fix": "eslint --ext ts --fix .",
+    "lint:review": "eslint --ext ts --format rdjson . | reviewdog -f=rdjson -reporter=github-pr-review",
+    "start": "ts-node --esm --swc src/index",
+    "test": "NODE_OPTIONS='--experimental-vm-modules --no-warnings' jest"
+  },
+  "dependencies": {
+    "commander": "^10.0.1",
+    "glob-promise": "^6.0.2",
+    "reflect-metadata": "^0.1.13",
+    "saxes": "^6.0.0",
+    "tempy": "^3.0.0",
+    "tsyringe": "^4.7.0"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.3.56",
+    "@swc/jest": "^0.2.26",
+    "@types/jest": "^29.5.1",
+    "@types/node": "^16.18.25",
+    "@typescript-eslint/eslint-plugin": "^5.59.2",
+    "@typescript-eslint/parser": "^5.59.2",
+    "eslint": "^8.39.0",
+    "eslint-formatter-rdjson": "^1.0.5",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-node": "^11.1.0",
+    "jest": "^29.5.0",
+    "npm-run-all": "^4.1.5",
+    "shx": "^0.3.4",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  }
+}

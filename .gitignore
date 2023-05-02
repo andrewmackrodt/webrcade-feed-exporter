@@ -1,0 +1,16 @@
+!.idea
+.idea/*
+!.idea/jsLinters
+!.idea/jsLinters/*
+!.idea/jsLinters/eslint.xml
+.run/Application.run.xml
+.vscode/
+coverage/
+node_modules/
+out/
+cookies.txt
+.DS_Store
+.env
+*.db
+*.heapsnapshot
+*.log
